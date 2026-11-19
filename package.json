@@ -1,0 +1,21 @@
+{
+  "name": "loup-garou",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Application web de gestion de parties de Loup-Garou (Maître du jeu + joueurs en temps réel)",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n serveur,client -c magenta,cyan \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client && npm run typecheck -w server",
+    "start": "npm run start -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w client",
+    "test": "npm run test -w server",
+    "bots": "npm run bots -w server --"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  }
+}
